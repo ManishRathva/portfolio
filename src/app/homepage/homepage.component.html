@@ -1,0 +1,65 @@
+<div class="container-fluid main-banner">
+    <app-navbar></app-navbar>
+    <div class="container main-banner-details">
+        <div class="row mb-5">
+            <div class="col d-flex justify-content-center  align-items-center profile-details">
+                <div class="text-center">
+                    <img src="/assets/images/earth.jpg" alt="profileimage">
+                    <h1>Manish Rathva</h1>
+                    <h5>Angular Developer</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center shadow-lg p-4 mb-5">
+            <h1>About</h1>
+            <div class="col text-start">
+                <ul>
+                    <li>I have Angular Developer as 1.5 year Experience.</li>
+                    <li>Expertise in Angular 2+ All versions, React, Javascript, Node JS and UI with Responsive Designs
+                    </li>
+                    <li>Have good understanding of Python, Jquery, Bootstrap, MongoDB, Firebase, and MYSQL</li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card-body text-start">
+                    <div class="row">
+                        <div class="col-sm-4"><strong class="text-uppercase">Date of Birth:</strong></div>
+                        <div class="col-sm-8">10-02-2000</div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
+                        <div class="col-sm-8"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
+                        <div class="col-sm-8">+91 6354285812</div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
+                        <div class="col-sm-8">Moti Amrol, Pavi Jetpur ,Chotaudaipur</div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
+                        <div class="col-sm-8">Hindi, English ,Gujarati</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            @for(item of items; track item;let idx = $index){
+            <div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4 col-12">
+                <img [src]="item.image" alt="Step Image" class="img-fluid">
+            </div>
+            <div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4 col-12">
+                <span class="step">{{ item.step }}</span>
+            </div>
+            <div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4 col-12">
+                {{ item.content }}
+            </div>
+            }
+        </div>
+
+
+    </div>
+</div>
