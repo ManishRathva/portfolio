@@ -1,12 +1,13 @@
-<div class="container-fluid header text-white position-fixed w-100" id="navbar" [ngClass]="{'scrolled': isScrolled}">
+<div class="container-fluid header text-white position-fixed w-100 z-3 position-absolute" id="navbar"
+    [ngClass]="{'scrolled': isScrolled}">
     <div class="container">
         <div class="d-flex justify-content-between p-3">
             <h5 class="my-0 mr-md-auto font-weight-normal">My Portfolio</h5>
             <nav class="my-2 my-md-0 mr-md-3">
-                <a class="p-2 text-white text-decoration-none" href="#">Portfolio</a>
-                <a class="p-2 text-white text-decoration-none" href="#">Experience</a>
-                <a class="p-2 text-white text-decoration-none" href="#">Contact</a>
-                <a class="p-2 text-white text-decoration-none" href="#">About</a>
+                <a class="p-2 text-white text-decoration-none" (click)="clickMe('portfolio')">Portfolio</a>
+                <a class="p-2 text-white text-decoration-none" (click)="clickMe('experience')">Experience</a>
+                <a class="p-2 text-white text-decoration-none" (click)="clickMe('contact')">Contact</a>
+                <a class="p-2 text-white text-decoration-none" (click)="clickMe('about')">About</a>
             </nav>
         </div>
     </div>

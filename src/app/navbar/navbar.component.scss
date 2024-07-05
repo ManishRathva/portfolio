@@ -1,17 +1,21 @@
-::ng-deep .container-fluid {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin: 0;
-    padding: 0;
-    --bs-gutter-x: 0rem;
-}
+   * {
+       font-family: "Open Sans", sans-serif !important;
+   }
 
-#navbar {
-    transition: background-color 0.3s;
-    margin: 0;
-    padding: 0;
-}
+   ::ng-deep .container-fluid {
+       padding-left: 0 !important;
+       padding-right: 0 !important;
+       margin: 0;
+       padding: 0;
+       --bs-gutter-x: 0rem;
+   }
 
-#navbar.scrolled {
-    background-color: #005d78;
-}
+   #navbar {
+       transition: background-color 0.3s;
+       margin: 0;
+       padding: 0;
+   }
+
+   #navbar.scrolled {
+       background-color: #005d78;
+   }

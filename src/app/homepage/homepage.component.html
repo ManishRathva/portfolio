@@ -1,5 +1,5 @@
 <div class="container-fluid main-banner">
-    <app-navbar></app-navbar>
+    <app-navbar (routerData)="getRouter($event)"></app-navbar>
     <div class="container main-banner-details">
         <div class="row mb-5">
             <div class="col d-flex justify-content-center  align-items-center profile-details">
@@ -10,8 +10,8 @@
                 </div>
             </div>
         </div>
-        <div class="row text-center shadow-lg p-4 mb-5">
-            <h1>Basic Information</h1>
+        <div class="row text-center shadow-lg p-3 mb-5">
+            <h2 class="heading mb-4">Pesrsonal Information</h2>
             <div class="col text-start">
                 <ul>
                     <li>I have Angular Developer as 1.5 year Experience.</li>
@@ -21,41 +21,39 @@
                 </ul>
             </div>
             <div class="col-lg-6 col-md-12">
+                @for(details of personalDetails;track details; let idx = $index){
                 <div class="card-body text-start">
+                    @for(key of objectKeys(details);track key){
                     <div class="row">
-                        <div class="col-sm-4"><strong class="text-uppercase">Date of Birth:</strong></div>
-                        <div class="col-sm-8">10-02-2000</div>
+                        <div class="col-sm-5"><strong class="text-uppercase personal-details"> {{key}}</strong></div>
+                        <div class="col-sm-2">:-</div>
+                        <div class="col-sm-5">
+                            @if(key === 'dob'){
+                            {{ details[key] | date: 'dd-MM-yyyy' }}
+                            }@else{
+                            <ng-container>{{ details[key] }}</ng-container>
+                            }
+                        </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-                        <div class="col-sm-8"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
-                        <div class="col-sm-8">+91 6354285812</div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
-                        <div class="col-sm-8">Moti Amrol, Pavi Jetpur ,Chotaudaipur</div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
-                        <div class="col-sm-8">Hindi, English ,Gujarati</div>
-                    </div>
+                    }
                 </div>
+                }
             </div>
         </div>
 
-        <div class="row text-center mb-5">
+        <div id="experience" class="row text-center p-3 mb-5">
+            <h2 class="heading mb-4">Experience</h2>
             @for(item of items; track item; let idx = $index, e = $even, o = $odd) {
             <div class="col-12">
                 <div class="row">
                     <div [ngClass]="{'order-md-1': e, 'order-md-3': o}"
-                        class="col col-sm-12 col-md-6 col-lg-6 col-xl-6 col-12">
+                        class="col col-sm-12 col-md-6 col-lg-6 col-xl-6 col-12" data-aos="fade-right"
+                        data-aos-offset="10" data-aos-duration="500">
                         <img [src]="item.image" alt="Step Image" class="img-fluid">
                     </div>
                     <div [ngClass]="{'order-md-3': e, 'order-md-1': o}"
-                        class="col col-sm-12 col-md-6 col-lg-6 col-xl-6 col-12">
+                        class="col col-sm-12 col-md-6 col-lg-6 col-xl-6 col-12" data-aos="fade-left"
+                        data-aos-offset="10" data-aos-duration="500">
                         {{ item.content }}
                     </div>
                 </div>
@@ -63,8 +61,8 @@
             }
         </div>
 
-        <div class="row text-center shadow-lg mb-5">
-            <h1>Skills</h1>
+        <div id="experience" class="row text-center shadow-lg p-3 mb-5">
+            <h2 class="heading">Skills</h2>
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
@@ -143,12 +141,11 @@
             </div>
         </div>
 
-        <!-- education.component.html -->
-        <div class="row shadow-lg mb-5">
+        <div class="row shadow-lg p-3 mb-5">
             <div class="col">
-                <h1 class="text-center">Education</h1>
+                <h2 class="text-center heading">Education</h2>
                 @for(education of educationList;track education;let idx = $index){
-                <div class="row mb-5 mx-5 shadow-lg">
+                <div class="row mb-5 mx-5 shadow-lg" data-aos="fade-up" data-aos-duration="10">
                     <div class="col col-sm-12 col-md-3 col-lg-3 col-xl-3 col-12 bg-dark text-white py-3 ">
                         <p class="text-center">{{ education.period }}</p>
                         <h4 class="text-center">{{ education.level }}</h4>
@@ -168,7 +165,7 @@
             </div>
         </div>
 
-        <div class="row shadow-lg p-3 contact-banner mb-5">
+        <div id="contact" class="row shadow-lg p-3 contact-banner mb-5">
             <div class="col"></div>
             <div class="col">
                 <form>

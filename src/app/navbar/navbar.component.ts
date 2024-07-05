@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +10,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class NavbarComponent {
   isScrolled = false;
+  @Output() routerData = new EventEmitter();
 
   constructor() { }
 
@@ -19,5 +20,9 @@ export class NavbarComponent {
   onWindowScroll(): void {
     const verticalOffset = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
     this.isScrolled = verticalOffset > 300;
+  }
+
+  clickMe(value: string) {
+    this.routerData.emit(value)
   }
 }

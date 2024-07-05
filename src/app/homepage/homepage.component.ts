@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
-import { NgClass } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { FooterComponent } from '../footer/footer.component';
 
 export interface Education {
@@ -12,15 +12,25 @@ export interface Education {
   details: any;
 }
 
+export interface PesronalDetails {
+  dob: Date,
+  email: string,
+  phone: string,
+  address: string,
+  language: string,
+  [key: string]: any;
+}
+
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [NavbarComponent, FormsModule, NgClass, FooterComponent],
+  imports: [NavbarComponent, FormsModule, NgClass, FooterComponent, DatePipe],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent {
-
+  linkData!: string;
+  objectKeys = Object.keys;
   constructor() {
 
   }
@@ -80,6 +90,26 @@ export class HomepageComponent {
     }
   ];
 
+  personalDetails: PesronalDetails[] = [
+    {
+      dob: new Date('2000-02-10'),
+      email: 'manishrathva@gmail.com',
+      phone: '6354285812',
+      address: 'Pavi Jetpur,Chhota Udaipur',
+      language: 'English , Gujarati, Hindi'
+    }
+  ]
 
+  getRouter(value: string) {
+    this.linkData = value;
+    this.scrollToSection(value);
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
 }

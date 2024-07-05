@@ -1,3 +1,7 @@
+* {
+    font-family: "Open Sans", sans-serif !important;
+}
+
 .container-fluid.main-banner {
     background-image: url('../../assets/images/bg1.jpg');
     background-repeat: no-repeat;
@@ -33,6 +37,10 @@
     }
 }
 
+.personal-details::before {
+    content: "👉";
+}
+
 .step {
     background: #cccccc;
     border-radius: 0.8em;
@@ -45,4 +53,19 @@
     margin-right: 5px;
     text-align: center;
     width: 1.6em;
+}
+
+.heading {
+    font-weight: 700;
+}
+
+.heading::before,
+.heading::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: royalblue;
+    border-radius: 50%;
+    margin: 15px 15px 0 15px;
 }
